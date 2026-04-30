@@ -1,0 +1,154 @@
+"""Project registry — each project maps to target subreddits and post metadata."""
+
+PROJECTS = {
+    "archana": {
+        "name": "Archana",
+        "repo": "sarthakgoel31/archana",
+        "url": "https://myarchana.in",
+        "tagline": "Trust-first pooja booking platform with Hindu calendar, kundli, and panchang",
+        "subreddits": ["hinduism", "india", "SideProject", "webdev"],
+        "x_hashtags": ["#buildinpublic", "#hindu", "#nextjs", "#startup"],
+        "angle": "spiritual-tech",
+        "highlights": [
+            "Real temple bookings with prasad delivery",
+            "AI-powered kundli with pandit chatbot",
+            "Daily panchang with nakshatra, choghadiya, rashi",
+            "Zero-cost horoscope engine (5K+ combos per rashi)",
+            "Built with Next.js, Supabase, Razorpay",
+        ],
+    },
+    "second-brain": {
+        "name": "Second Brain",
+        "repo": "sarthakgoel31/second-brain",
+        "url": None,
+        "tagline": "Karpathy-style LLM knowledge base — raw content to structured wiki to insights",
+        "subreddits": ["MachineLearning", "artificial", "SideProject", "Python"],
+        "x_hashtags": ["#buildinpublic", "#AI", "#LLM", "#knowledgebase"],
+        "angle": "ai-tool",
+        "highlights": [
+            "Ingest any content (YouTube, articles, papers)",
+            "Auto-compiles into structured wiki entries",
+            "Query across your entire knowledge graph",
+            "Inspired by Andrej Karpathy's approach",
+            "100% local, zero API cost",
+        ],
+    },
+    "content-listener": {
+        "name": "VidText",
+        "repo": "sarthakgoel31/content-listener",
+        "url": None,
+        "tagline": "Transcribe, summarize, and extract actionables from YouTube/Instagram/Spotify",
+        "subreddits": ["Python", "SideProject", "productivity", "webdev"],
+        "x_hashtags": ["#buildinpublic", "#productivity", "#AI", "#chrome"],
+        "angle": "productivity-tool",
+        "highlights": [
+            "Transcribes YouTube, Instagram reels, Spotify podcasts",
+            "Smart Whisper model selection (speed vs accuracy)",
+            "Chrome extension for one-click transcription",
+            "Send summaries directly to Kindle",
+            "Completely free — no paid APIs",
+        ],
+    },
+    "call-analyzer": {
+        "name": "Call Analyzer",
+        "repo": "sarthakgoel31/call-analyzer",
+        "url": None,
+        "tagline": "AI call analysis replacing ConvoZen — 94% cost savings with Cashflohero STT + Grok",
+        "subreddits": ["SideProject", "startups", "Python", "SaaS"],
+        "x_hashtags": ["#buildinpublic", "#AI", "#SaaS", "#startup"],
+        "angle": "cost-saving-tool",
+        "highlights": [
+            "Replaces ConvoZen at 94% lower cost",
+            "Cashflohero STT + Grok LLM pipeline",
+            "Call scoring, sentiment analysis, key insights",
+            "Built for sales team call review at scale",
+            "Self-hosted, zero vendor lock-in",
+        ],
+    },
+    "trading-monitor": {
+        "name": "6E Trading Monitor",
+        "repo": "sarthakgoel31/trading-monitor",
+        "url": None,
+        "tagline": "Delta-Hero scanner for 6E futures — RSI divergence, sentiment, pivot levels",
+        "subreddits": ["algotrading", "Daytrading", "FuturesTrading", "Python"],
+        "x_hashtags": ["#buildinpublic", "#trading", "#algotrading", "#futures"],
+        "angle": "trading-tool",
+        "highlights": [
+            "Multi-timeframe RSI divergence detection",
+            "Confluence-based pivot level clustering",
+            "Sentiment from Scotia FX, Google News, Reddit, TradingView",
+            "Sierra Chart ACSIL study integration",
+            "Full backtest framework with tick-level data",
+        ],
+    },
+    "morning-coffee": {
+        "name": "Morning Coffee",
+        "repo": "sarthakgoel31/morning-coffee",
+        "url": None,
+        "tagline": "Daily trading prep — levels, sentiment, and analysis frames delivered every morning",
+        "subreddits": ["algotrading", "Daytrading", "Python"],
+        "x_hashtags": ["#buildinpublic", "#trading", "#morningroutine"],
+        "angle": "trading-tool",
+        "highlights": [
+            "Auto-generated daily trade levels",
+            "Sentiment aggregation from multiple sources",
+            "Input frames for structured analysis",
+            "Integrates with Sierra Chart data",
+        ],
+    },
+    "kindle-agent": {
+        "name": "Kindle Agent",
+        "repo": "sarthakgoel31/kindle-agent",
+        "url": None,
+        "tagline": "Send any document, transcript, or text content to your Kindle instantly",
+        "subreddits": ["kindle", "Python", "SideProject", "productivity"],
+        "x_hashtags": ["#buildinpublic", "#kindle", "#productivity"],
+        "angle": "productivity-tool",
+        "highlights": [
+            "Send any text/PDF/MOBI/EPUB to Kindle",
+            "Auto-formats transcripts for e-reader",
+            "Gmail SMTP delivery — zero cost",
+            "Works with VidText for video-to-Kindle pipeline",
+        ],
+    },
+    "hisaab-bot": {
+        "name": "HisaabBot",
+        "repo": "sarthakgoel31/hisaab-bot",
+        "url": None,
+        "tagline": "WhatsApp bot for group expense splitting and personal finance tracking",
+        "subreddits": ["SideProject", "india", "Python", "personalfinance"],
+        "x_hashtags": ["#buildinpublic", "#whatsapp", "#fintech", "#india"],
+        "angle": "fintech-tool",
+        "highlights": [
+            "WhatsApp-native group expense splitting",
+            "NLP-powered expense detection from messages",
+            "Personal finance tracking via chat",
+            "No app download needed — works in existing groups",
+        ],
+    },
+    "portfolio": {
+        "name": "Portfolio",
+        "repo": "sarthakgoel31/portfolio",
+        "url": "https://sarthakgoel.cv",
+        "tagline": "Developer portfolio with real GitHub stats, scroll animations, and spring physics",
+        "subreddits": ["webdev", "nextjs", "SideProject", "reactjs"],
+        "x_hashtags": ["#buildinpublic", "#portfolio", "#nextjs", "#webdev"],
+        "angle": "showcase",
+        "highlights": [
+            "Real GitHub contribution heatmap via GraphQL API",
+            "Spring physics draggable photo gallery",
+            "Scroll-tracking SVG path animations",
+            "Geist font + Tailwind v4 design system",
+            "Built with Next.js 15 + Motion",
+        ],
+    },
+}
+
+
+def list_projects():
+    """Print all configured projects."""
+    print(f"{'Key':<20} {'Name':<20} {'Subreddits'}")
+    print("-" * 70)
+    for key, proj in PROJECTS.items():
+        subs = ", ".join(f"r/{s}" for s in proj.get("subreddits", []))
+        print(f"{key:<20} {proj['name']:<20} {subs}")
