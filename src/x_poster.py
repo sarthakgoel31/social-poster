@@ -48,3 +48,23 @@ def check_auth():
     except Exception as e:
         print(f"X auth failed: {e}")
         return False
+
+
+def post_thread(tweets: list[str]) -> str:
+    """Post a thread — each tweet replies to the previous. Returns the first tweet's URL."""
+    if not tweets:
+        raise ValueError("Empty thread")
+    client = _get_client()
+    first_id = None
+    prev_id = None
+    for text in tweets:
+        if len(text) > 280:
+            print(f"Warning: tweet is {len(text)} chars (max 280). Truncating...")
+            text = text[:277] + "..."
+        response = client.create_tweet(text=text, in_reply_to_tweet_id=prev_id)
+        prev_id = response.data["id"]
+        if first_id is None:
+            first_id = prev_id
+    url = f"https://x.com/i/status/{first_id}"
+    print(f"Posted thread ({len(tweets)} tweets): {url}")
+    return url

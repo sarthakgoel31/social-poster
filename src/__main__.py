@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 
 from .config import PROJECTS, list_projects
 from .generator import generate_post
-from .x_poster import post_to_x
+from .x_poster import post_thread, post_to_x
 
 
 def _copy_to_clipboard(text: str) -> bool:
@@ -48,6 +48,11 @@ def main():
     post = sub.add_parser("post", help="Post to X/Twitter (automated)")
     post.add_argument("project", help="Project key from config")
     post.add_argument("--dry-run", action="store_true", help="Print tweet without sending")
+
+    # --- post-thread (X only) ---
+    thread = sub.add_parser("post-thread", help="Post a thread from a JSON file (array of tweet strings)")
+    thread.add_argument("--json", required=True, help="Path to JSON array of tweets")
+    thread.add_argument("--dry-run", action="store_true", help="Print thread without sending")
 
     args = parser.parse_args()
 
@@ -105,6 +110,20 @@ def main():
             print(text)
         else:
             post_to_x(text)
+
+    elif args.command == "post-thread":
+        import json
+
+        tweets = json.loads(Path(args.json).read_text())
+        if not isinstance(tweets, list) or not all(isinstance(t, str) for t in tweets):
+            print("Expected a JSON array of tweet strings")
+            sys.exit(1)
+        if args.dry_run:
+            print(f"[DRY RUN] Thread ({len(tweets)} tweets)")
+            for i, t in enumerate(tweets, 1):
+                print(f"{'='*60}\n{i}/ ({len(t)} chars)\n{t}")
+        else:
+            post_thread(tweets)
 
     else:
         parser.print_help()
